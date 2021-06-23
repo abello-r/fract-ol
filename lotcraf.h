@@ -8,9 +8,13 @@
 #include <stdlib.h>
 #include <mlx.h>
 
+#define WIDTH 1080
+#define HEIGHT 1080
+
 # define GREEN "\033[1;32m"
 # define RED "\033[1;31m"
 # define RESET "\033[0m"
+
 # define ERROR_ARG "Do you wanna mean [Julia] or [Mandelbrot] ?"
 
 typedef struct	s_data
@@ -24,9 +28,6 @@ typedef struct	s_data
 	int			endian;
 }				t_data;
 
-
-#define WIDTH 1080
-#define HEIGHT 1080
 
 
 #endif

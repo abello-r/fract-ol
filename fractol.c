@@ -31,22 +31,15 @@ int	main(int argc, char **argv)
 		}
 	}
 	if (ft_strcmp(argv[1], "Julia"))
-			//ft_julia(g);
+			ft_julia(&data);
 	if (ft_strcmp(argv[1], "Mandelbrot"))
-			//ft_mandelbrot(g);
+			ft_mandelbrot(&data);
 
 	data.mlx = mlx_init();
 	data.win = mlx_new_window(data.mlx, WIDTH, HEIGHT, "Fract-ol");
 	data.img = mlx_new_image(data.mlx, WIDTH, HEIGHT);
 	data.addr = mlx_get_data_addr(data.img, &data.bits_per_pixel, &data.line_lenght, &data.endian);
 	mlx_loop(data.mlx);
-
-
-
-
-
-
-
 
 	return (0);
 }
