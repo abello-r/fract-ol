@@ -6,6 +6,7 @@
 #include <unistd.h>
 #include <math.h>
 #include <stdlib.h>
+#include <mlx.h>
 
 # define GREEN "\033[1;32m"
 # define RED "\033[1;31m"
@@ -14,11 +15,13 @@
 
 typedef struct	s_data
 {
-	void	*mlx;
-	void	*win;
-	void	*img;
-	void	*addr;
-
+	void		*mlx;
+	void		*win;
+	void		*img;
+	char		*addr;
+	int			bits_per_pixel;
+	int			line_lenght;
+	int			endian;
 }				t_data;
 
 
