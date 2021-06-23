@@ -8,7 +8,7 @@ $(NAME): $(OBJ)
 	@ar -rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
 	@echo "\n\033[32m"Archivos compilados correctamente ✅"\n"
-	gcc fractol.c libft.a -lmlx -framework OpenGL -framework AppKit
+	gcc -Wall -Werror -Wextra $(SRCS) libft.a -lmlx -framework OpenGL -framework AppKit
 
 all: $(NAME)
 
