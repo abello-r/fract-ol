@@ -1,7 +1,7 @@
 #ifndef LOTCRAF_H
 # define LOTCRAF_H
 
-#include "./srcs/Libft/libft.h"
+#include "./Libft/libft.h"
 #include <stdio.h>
 #include <unistd.h>
 #include <math.h>
@@ -15,7 +15,7 @@
 # define RED "\033[1;31m"
 # define RESET "\033[0m"
 
-# define ERROR_ARG "Do you wanna mean [Julia] or [Mandelbrot] ?"
+# define ERROR_ARG "Do you mean [Julia] or [Mandelbrot] ?"
 
 typedef struct	s_data
 {

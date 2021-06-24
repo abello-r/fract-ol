@@ -6,7 +6,7 @@
 /*   By: abello-r <abello-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 22:27:06 by abello-r          #+#    #+#             */
-/*   Updated: 2021/06/23 11:17:02 by abello-r         ###   ########.fr       */
+/*   Updated: 2021/06/24 14:43:18 by abello-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		write(1, RED ERROR_ARG"\n", 51);
+		write(1, RED ERROR_ARG"\n", 46);
 		return (1);
 	}
 	else if (argc == 2)
@@ -26,7 +26,7 @@ int	main(int argc, char **argv)
 		if ((ft_strcmp(argv[1], "Julia") == 1)
 			&& (ft_strcmp(argv[1], "Mandelbrot") == 1))
 		{
-			write(1, RED ERROR_ARG"\n", 51);
+			write(1, RED ERROR_ARG"\n", 46);
 			return (1);
 		}
 	}
