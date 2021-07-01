@@ -22,14 +22,49 @@ typedef struct	s_data
 	void		*mlx;
 	void		*win;
 	void		*img;
-	char		*addr;
+	char		*addr; // Data minilibx
+
 	int			bits_per_pixel;
 	int			line_lenght;
 	int			endian;
+
+	double		a;
+	double		b; // Complex numbs
+	double		c;
+
+	double		x;
+	double		y; // Coord
+	double		z;
+
 }				t_data;
 
-int		ft_exit(t_data *data);
-void	ft_julia(t_data *data);
-void	ft_mandelbrot(t_data *data);
+typedef struct	aliuj
+{
+	double		cre;
+	double		cim;
+	double		newre;
+	double		newin;
+	double		oldre;
+	double		oldim;
+	double		zoom;
+	double		mov_x;
+	double		mov_y;
+	int			max_itr;
+
+}				t_aliuj;
+
+typedef	struct	g
+{
+	t_aliuj aliuj;
+	t_data	data;
+
+}				t_g;
+
+void	ft_init_structs(t_g *g);
+int		ft_exit(t_g *g);
+void	ft_julia(t_g *g);
+void	ft_mandelbrot(t_g *g);
+void	my_mlx_pixel_put(t_g *g, int x, int y, int color);
+int		ft_rgb(int r, int g, int b);
 
 #endif

@@ -6,13 +6,13 @@
 /*   By: abello-r <abello-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 12:31:16 by abello-r          #+#    #+#             */
-/*   Updated: 2021/06/24 14:31:45 by abello-r         ###   ########.fr       */
+/*   Updated: 2021/06/29 14:23:59 by abello-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lotcraf.h"
 
-void	ft_mandelbrot(t_data *data)
+void	ft_mandelbrot(t_g *g)
 {
-	data->endian = 0;
+	g->data.endian = 0;
 }

@@ -6,7 +6,7 @@
 /*   By: abello-r <abello-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 22:27:06 by abello-r          #+#    #+#             */
-/*   Updated: 2021/06/24 14:43:18 by abello-r         ###   ########.fr       */
+/*   Updated: 2021/07/01 18:25:05 by abello-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main(int argc, char **argv)
 {
-	t_data	data;
+	t_g g;
 
 	if (argc != 2)
 	{
@@ -30,17 +30,20 @@ int	main(int argc, char **argv)
 			return (1);
 		}
 	}
-	if (ft_strcmp(argv[1], "Julia"))
-			ft_julia(&data);
-	if (ft_strcmp(argv[1], "Mandelbrot"))
-			ft_mandelbrot(&data);
+	ft_init_structs(&g);
+	g.data.mlx = mlx_init();
+	g.data.win = mlx_new_window(g.data.mlx, WIDTH, HEIGHT, "Fract-ol");
+	g.data.img = mlx_new_image(g.data.mlx, WIDTH, HEIGHT);
+	g.data.addr = mlx_get_data_addr(g.data.img, &g.data.bits_per_pixel, &g.data.line_lenght, &g.data.endian);
 
-	data.mlx = mlx_init();
-	data.win = mlx_new_window(data.mlx, WIDTH, HEIGHT, "Fract-ol");
-	data.img = mlx_new_image(data.mlx, WIDTH, HEIGHT);
-	data.addr = mlx_get_data_addr(data.img, &data.bits_per_pixel, &data.line_lenght, &data.endian);
-	mlx_hook(data.win, 17, (17L << 0), ft_exit, &data);
-	mlx_loop(data.mlx);
+	if (ft_strcmp(argv[1], "Julia") == 0)
+		ft_julia(&g);
+	if (ft_strcmp(argv[1], "Mandelbrot") == 0)
+		ft_mandelbrot(&g);
+
+	//mlx_hook(g.data.win, 17, (17L << 0), ft_exit, &g.data);
+	mlx_loop(g.data.mlx);
+
 
 	return (0);
 }

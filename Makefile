@@ -14,7 +14,7 @@ $(NAME): $(OBJS)
 	@cp ./srcs/Libft/libft.a .
 	@ar -rc $(NAME) $(OBJS)
 	@ranlib $(NAME)
-	@gcc -Wall -Werror -Wextra $(SRCS) libft.a -lmlx -framework OpenGL -framework AppKit -o fractol
+	@gcc -Wall -Werror -Wextra $(SRCS) -fsanitize=address libft.a -lmlx -framework OpenGL -framework AppKit -o fractol
 	@mv libft.a ./srcs
 
 all: $(NAME)
