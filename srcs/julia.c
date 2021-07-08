@@ -6,7 +6,7 @@
 /*   By: abello-r <abello-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 12:31:20 by abello-r          #+#    #+#             */
-/*   Updated: 2021/07/01 18:35:09 by abello-r         ###   ########.fr       */
+/*   Updated: 2021/07/06 13:01:23 by abello-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ void	ft_julia(t_g *g)
 	x = 0;
 
 	ft_init_structs(g);
-	//color = ft_rgb(77,55,70);
-	color = ft_rgb(255,255,100);
+	color = ft_rgb(22,16,77);
 	while (y < HEIGHT)
 	{
 		x = 0;
@@ -42,7 +41,7 @@ void	ft_julia(t_g *g)
 				g->aliuj.newin = 2 * g->aliuj.oldre * g->aliuj.oldim + g->aliuj.cim;
 				if ((g->aliuj.newre * g->aliuj.newre + g->aliuj.newin * g->aliuj.newin) > 4)
 					break ;
-				my_mlx_pixel_put(g, x, y, color * i);
+				my_mlx_pixel_put(g, x, y, color << i);
 				i++;
 			}
 			x++;

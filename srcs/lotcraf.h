@@ -14,7 +14,7 @@
 # define GREEN "\033[1;32m"
 # define RED "\033[1;31m"
 # define RESET "\033[0m"
-
+# define ESCAPE 53
 # define ERROR_ARG "Do you mean [Julia] or [Mandelbrot] ?"
 
 typedef struct	s_data
@@ -22,19 +22,10 @@ typedef struct	s_data
 	void		*mlx;
 	void		*win;
 	void		*img;
-	char		*addr; // Data minilibx
-
+	char		*addr;
 	int			bits_per_pixel;
 	int			line_lenght;
 	int			endian;
-
-	double		a;
-	double		b; // Complex numbs
-	double		c;
-
-	double		x;
-	double		y; // Coord
-	double		z;
 
 }				t_data;
 
@@ -53,15 +44,33 @@ typedef struct	aliuj
 
 }				t_aliuj;
 
+typedef struct	mb
+{
+	double		cre;
+	double		cim;
+	double		newre;
+	double		newin;
+	double		oldre;
+	double		oldim;
+	double		zoom;
+	double		mov_x;
+	double		mov_y;
+	double		pr;
+	double		pi;
+	int			max_itr;
+}				t_mb;
+
 typedef	struct	g
 {
 	t_aliuj aliuj;
+	t_mb	mb;
 	t_data	data;
 
 }				t_g;
 
 void	ft_init_structs(t_g *g);
 int		ft_exit(t_g *g);
+int		key_press(int keycode, t_g *g);
 void	ft_julia(t_g *g);
 void	ft_mandelbrot(t_g *g);
 void	my_mlx_pixel_put(t_g *g, int x, int y, int color);

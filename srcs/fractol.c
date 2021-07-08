@@ -6,7 +6,7 @@
 /*   By: abello-r <abello-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 22:27:06 by abello-r          #+#    #+#             */
-/*   Updated: 2021/07/01 18:25:05 by abello-r         ###   ########.fr       */
+/*   Updated: 2021/07/06 12:43:44 by abello-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ int	main(int argc, char **argv)
 	if (ft_strcmp(argv[1], "Mandelbrot") == 0)
 		ft_mandelbrot(&g);
 
-	//mlx_hook(g.data.win, 17, (17L << 0), ft_exit, &g.data);
+	mlx_hook(g.data.win, 02, (0L << 0), key_press, &g);
+	mlx_hook(g.data.win, 17, (17L << 0), ft_exit, &g);
 	mlx_loop(g.data.mlx);
 
 

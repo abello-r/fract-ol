@@ -6,34 +6,25 @@
 /*   By: abello-r <abello-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 13:03:22 by abello-r          #+#    #+#             */
-/*   Updated: 2021/07/01 18:22:01 by abello-r         ###   ########.fr       */
+/*   Updated: 2021/07/06 12:58:36 by abello-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lotcraf.h"
 
-int	ft_exit(t_g *g)
-{
-	mlx_destroy_window(g->data.mlx, g->data.win);
-	exit(0);
-}
-
 void	ft_init_structs(t_g *g)
 {
-	g->data.a = 0;
-	g->data.b = 0;
-	g->data.c = 0;
-
-	g->data.x = 0;
-	g->data.y = 0;
-	g->data.z = 0;
-
+	ft_bzero(&g->aliuj, sizeof(t_aliuj));
+	ft_bzero(&g->aliuj, sizeof(t_mb));
 	g->aliuj.max_itr = 300;
 	g->aliuj.cre = -0.7;
 	g->aliuj.cim = 0.27015;
 	g->aliuj.zoom = 1;
-	g->aliuj.mov_x = 0;
-	g->aliuj.mov_y = 0;
+
+	g->mb.max_itr = 300;
+	g->mb.cre = -0.7;
+	g->mb.cim = 0.27015;
+	g->mb.zoom = 1;
 }
 
 void			my_mlx_pixel_put(t_g *g, int x, int y, int color)

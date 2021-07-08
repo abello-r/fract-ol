@@ -3,7 +3,8 @@ NAME= ./srcs/lotcraf.a
 SRCS=	./srcs/fractol.c \
 		./srcs/julia.c \
 		./srcs/mandelbrot.c \
-		./srcs/utils_keys.c
+		./srcs/utils_keys.c \
+		./srcs/ft_exit.c
 
 OBJS= $(SRCS:.c=.o)
 
