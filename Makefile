@@ -4,7 +4,9 @@ SRCS=	./srcs/fractol.c \
 		./srcs/julia.c \
 		./srcs/mandelbrot.c \
 		./srcs/utils_keys.c \
-		./srcs/ft_exit.c
+		./srcs/ft_exit.c \
+		./srcs/color_control.c \
+		./srcs/mouse_control.c
 
 OBJS= $(SRCS:.c=.o)
 
@@ -15,7 +17,7 @@ $(NAME): $(OBJS)
 	@cp ./srcs/Libft/libft.a .
 	@ar -rc $(NAME) $(OBJS)
 	@ranlib $(NAME)
-	@gcc -Wall -Werror -Wextra $(SRCS) -fsanitize=address libft.a -lmlx -framework OpenGL -framework AppKit -o fractol
+	@gcc -Wall -Werror -Wextra $(SRCS) libft.a -lmlx -framework OpenGL -framework AppKit -o fractol
 	@mv libft.a ./srcs
 
 all: $(NAME)
@@ -34,4 +36,4 @@ fclean:
 	@clear
 	@echo "\n\033[32m"Junk files deleted ✅"\n"
 
-PHONY: fclean clean all
+.PHONY: fclean clean all re

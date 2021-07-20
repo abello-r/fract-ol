@@ -6,25 +6,22 @@
 /*   By: abello-r <abello-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 12:31:20 by abello-r          #+#    #+#             */
-/*   Updated: 2021/07/06 13:01:23 by abello-r         ###   ########.fr       */
+/*   Updated: 2021/07/19 16:43:24 by abello-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lotcraf.h"
 
-void	ft_julia(t_g *g)
+int	ft_julia(t_g *g)
 {
 	int	y;
 	int	x;
 	int	i;
-	int	color;
 
 	i = 0;
 	y = 0;
 	x = 0;
 
-	ft_init_structs(g);
-	color = ft_rgb(22,16,77);
 	while (y < HEIGHT)
 	{
 		x = 0;
@@ -41,7 +38,7 @@ void	ft_julia(t_g *g)
 				g->aliuj.newin = 2 * g->aliuj.oldre * g->aliuj.oldim + g->aliuj.cim;
 				if ((g->aliuj.newre * g->aliuj.newre + g->aliuj.newin * g->aliuj.newin) > 4)
 					break ;
-				my_mlx_pixel_put(g, x, y, color << i);
+				my_mlx_pixel_put(g, x, y, g->data.color * sqrt(i)); // ó << i
 				i++;
 			}
 			x++;
@@ -49,4 +46,6 @@ void	ft_julia(t_g *g)
 		y++;
 	}
 	mlx_put_image_to_window(g->data.mlx, g->data.win, g->data.img, 0, 0);
+	key_move(g);
+	return(0);
 }
