@@ -6,7 +6,7 @@
 /*   By: abello-r <abello-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 22:27:06 by abello-r          #+#    #+#             */
-/*   Updated: 2021/07/19 16:00:18 by abello-r         ###   ########.fr       */
+/*   Updated: 2021/07/20 21:06:51 by abello-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,7 @@ int	main(int argc, char **argv)
 	mlx_hook(g.data.win, 03, (0L << 0), key_release, &g);
 	mlx_hook(g.data.win, 17, (17L << 0), ft_exit, &g);
 
-
-	mlx_hook(g.data.win, 9, (1L << 4), ft_in_win, &g);
-	mlx_hook(g.data.win, 10, (1L << 5), ft_leave_win, &g);
-
-
+	mlx_mouse_hook(g.data.win, ft_mouse, &g);
 
 	mlx_loop(g.data.mlx);
 

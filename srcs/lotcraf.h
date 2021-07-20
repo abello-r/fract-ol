@@ -91,5 +91,6 @@ void	ft_color_option(t_g *g, char *param);
 
 int		ft_in_win(t_g *g);
 int		ft_leave_win(t_g *g);
+int		ft_mouse(int key, t_g *g);
 
 #endif
