@@ -6,7 +6,7 @@
 /*   By: abello-r <abello-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 13:03:22 by abello-r          #+#    #+#             */
-/*   Updated: 2021/07/25 15:39:05 by abello-r         ###   ########.fr       */
+/*   Updated: 2021/07/25 16:29:52 by abello-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_init_structs(t_g *g)
 {
 	ft_bzero(&g->aliuj, sizeof(t_aliuj));
 	ft_bzero(&g->mb, sizeof(t_mb));
-	g->aliuj.max_itr = 100;
+	g->aliuj.max_itr = 300;
 	g->aliuj.cre = -0.7;
 	g->aliuj.cim = 0.27015;
 	g->aliuj.zoom = 1;
