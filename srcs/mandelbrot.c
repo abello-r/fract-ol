@@ -6,11 +6,32 @@
 /*   By: abello-r <abello-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 12:31:16 by abello-r          #+#    #+#             */
-/*   Updated: 2021/07/20 18:06:51 by abello-r         ###   ########.fr       */
+/*   Updated: 2021/07/25 16:17:52 by abello-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lotcraf.h"
+
+void	ft_mandel_help(t_g *g, int x, int y)
+{
+	g->mb.pr = 1.5 * (x - WIDTH / 1.5)
+		/ (0.5 * g->mb.zoom * WIDTH) + g->mb.mov_x;
+	g->mb.pi = (y - HEIGHT / 2)
+		/ (0.4 * g->mb.zoom * HEIGHT) + g->mb.mov_y;
+	g->mb.newre = 0;
+	g->mb.newin = 0;
+	g->mb.oldre = 0;
+	g->mb.oldim = 0;
+}
+
+void	ft_mandel_ecuation(t_g *g)
+{
+	g->mb.oldre = g->mb.newre;
+	g->mb.oldim = g->mb.newin;
+	g->mb.newre = g->mb.oldre * g->mb.oldre
+		- g->mb.oldim * g->mb.oldim + g->mb.pr;
+	g->mb.newin = 2 * g->mb.oldre * g->mb.oldim + g->mb.pi;
+}
 
 int	ft_mandelbrot(t_g *g)
 {
@@ -18,35 +39,23 @@ int	ft_mandelbrot(t_g *g)
 	int	x;
 	int	i;
 
-	i = 0;
-	y = 0;
-	x = 0;
-	while (y < HEIGHT)
+	y = -1;
+	mlx_do_sync(g->data.mlx);
+	while (++y < HEIGHT)
 	{
-		x = 0;
-		while (x < WIDTH)
+		x = -1;
+		while (++x < WIDTH)
 		{
-			g->mb.pr = 1.5 * (x - WIDTH / 1.5) / (0.5 * g->mb.zoom * WIDTH) + g->mb.mov_x;
-			g->mb.pi = (y - HEIGHT / 2) / (0.4 * g->mb.zoom * HEIGHT) + g->mb.mov_y;
-			g->mb.newre = 0;
-			g->mb.newin = 0;
-			g->mb.oldre = 0;
-			g->mb.oldim = 0;
-			i = 0;
-			while (i < g->mb.max_itr)
+			ft_mandel_help(g, x, y);
+			i = -1;
+			while (++i < g->mb.max_itr)
 			{
-				g->mb.oldre = g->mb.newre;
-				g->mb.oldim = g->mb.newin;
-				g->mb.newre = g->mb.oldre * g->mb.oldre - g->mb.oldim * g->mb.oldim + g->mb.pr;
-				g->mb.newin = 2 * g->mb.oldre * g->mb.oldim + g->mb.pi;
+				ft_mandel_ecuation(g);
 				if ((g->mb.newre * g->mb.newre + g->mb.newin * g->mb.newin) > 4)
 					break ;
-				my_mlx_pixel_put(g, x, y, g->data.color  * sqrt(i)); // ó << i
-				i++;
+				my_mlx_pixel_put(g, x, y, g->data.color * sqrt(i));
 			}
-			x++;
 		}
-		y++;
 	}
 	mlx_put_image_to_window(g->data.mlx, g->data.win, g->data.img, 0, 0);
 	key_move(g);

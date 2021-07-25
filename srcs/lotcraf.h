@@ -2,6 +2,7 @@
 # define LOTCRAF_H
 
 # include "./Libft/libft.h"
+# include "macrox.h"
 # include <stdio.h>
 # include <unistd.h>
 # include <math.h>
@@ -14,11 +15,8 @@
 # define GREEN "\033[1;32m"
 # define RED "\033[1;31m"
 # define RESET "\033[0m"
-# define ESCAPE 53
 # define ERROR_ARG "Do you mean [Julia] or [Mandelbrot] ?"
-# define ERROR_PARAM "You can choose between the following [red] [green] [blue] [white] [gold]"
-# define KEY_UP					13
-# define KEY_DOWN				1
+# define ERROR_PARAM "Color params : [red] [green] [blue] [white] [gold]"
 
 typedef struct s_data
 {
@@ -32,10 +30,11 @@ typedef struct s_data
 	int			color;
 	int			w;
 	int			s;
+	int			pepito;
 
 }				t_data;
 
-typedef struct aliuj
+typedef struct s_aliuj
 {
 	double		cre;
 	double		cim;
@@ -50,7 +49,7 @@ typedef struct aliuj
 
 }				t_aliuj;
 
-typedef struct mb
+typedef struct s_mb
 {
 	double		cre;
 	double		cim;
@@ -66,7 +65,7 @@ typedef struct mb
 	int			max_itr;
 }				t_mb;
 
-typedef struct g
+typedef struct s_g
 {
 	t_aliuj	aliuj;
 	t_mb	mb;
@@ -76,21 +75,16 @@ typedef struct g
 
 void	my_mlx_pixel_put(t_g *g, int x, int y, int color);
 void	ft_init_structs(t_g *g);
-
 int		ft_exit(t_g *g);
 int		key_press(int keycode, t_g *g);
 int		key_release(int keycode, t_g *g);
 int		key_move(t_g *g);
-
 int		ft_julia(t_g *g);
 int		ft_mandelbrot(t_g *g);
-
 int		ft_rgb(int r, int g, int b);
 void	ft_param_color(t_g *g, int argc, char **argv);
 void	ft_color_option(t_g *g, char *param);
-
-int		ft_in_win(t_g *g);
-int		ft_leave_win(t_g *g);
-int		ft_mouse(int key, t_g *g);
+int		ft_mouse(int key, int x, int y, t_g *g);
+int		ft_parser_arg(int argc, char **argv, t_g *g);
 
 #endif

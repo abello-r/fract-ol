@@ -6,7 +6,7 @@
 /*   By: abello-r <abello-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/18 14:02:11 by abello-r          #+#    #+#             */
-/*   Updated: 2021/07/18 14:44:57 by abello-r         ###   ########.fr       */
+/*   Updated: 2021/07/25 15:41:28 by abello-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_param_color(t_g *g, int argc, char **argv)
 		&& ft_strcmp(argv[2], "green") && ft_strcmp(argv[2], "gold")
 		&& ft_strcmp(argv[2], "white"))
 	{
-		write(1, RED ERROR_PARAM"\n", 81);
+		write(1, RED ERROR_PARAM"\n", 57);
 		exit (1);
 	}
 	if (argc == 3)
@@ -39,4 +39,16 @@ void	ft_color_option(t_g *g, char *param)
 		g->data.color = ft_rgb(255, 255, 255);
 	else if (ft_strcmp(param, "gold") == 0)
 		g->data.color = ft_rgb(255, 215, 0);
+}
+
+int	ft_rgb(int r, int g, int b)
+{
+	int	rgb;
+
+	if (r > 255 || g > 255 || b > 255)
+		write(1, "El RGB máximo es de 255\n", 25);
+	rgb = r;
+	rgb = (rgb << 8) + g;
+	rgb = (rgb << 8) + b;
+	return (rgb);
 }

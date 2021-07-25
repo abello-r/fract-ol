@@ -3,8 +3,8 @@ NAME= ./srcs/lotcraf.a
 SRCS=	./srcs/fractol.c \
 		./srcs/julia.c \
 		./srcs/mandelbrot.c \
-		./srcs/utils_keys.c \
-		./srcs/ft_exit.c \
+		./srcs/utils.c \
+		./srcs/key_control.c \
 		./srcs/color_control.c \
 		./srcs/mouse_control.c
 
