@@ -6,7 +6,7 @@
 /*   By: abello-r <abello-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 22:27:06 by abello-r          #+#    #+#             */
-/*   Updated: 2021/07/25 15:26:59 by abello-r         ###   ########.fr       */
+/*   Updated: 2021/07/26 13:56:50 by abello-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	ft_parser_arg(int argc, char **argv, t_g *g)
 	if (argc < 2 || argc > 3)
 	{
 		write(1, RED ERROR_ARG"\n", 46);
-		return (1);
+		exit(1);
 	}
 	else if (argc == 3 || argc == 2)
 	{
@@ -49,7 +49,7 @@ int	ft_parser_arg(int argc, char **argv, t_g *g)
 			&& (ft_strcmp(argv[1], "Mandelbrot") == 1))
 		{
 			write(1, RED ERROR_ARG"\n", 46);
-			return (1);
+			exit(1);
 		}
 	}
 	if (argc == 2 || argc == 3)

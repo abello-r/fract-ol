@@ -6,7 +6,7 @@
 /*   By: abello-r <abello-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 12:45:05 by abello-r          #+#    #+#             */
-/*   Updated: 2021/07/23 13:10:29 by abello-r         ###   ########.fr       */
+/*   Updated: 2021/07/26 13:53:24 by abello-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,10 @@ int	key_press(int keycode, t_g *g)
 		g->data.w = 1;
 	if (keycode == KEY_S && g->data.s == 0)
 		g->data.s = 1;
+	if (keycode == KEY_D && g->data.d == 0)
+		g->data.d = 1;
+	if (keycode == KEY_A && g->data.a == 0)
+		g->data.a = 1;
 	return (0);
 }
 
@@ -33,21 +37,23 @@ int	key_release(int keycode, t_g *g)
 		g->data.w = 0;
 	if (keycode == KEY_S && g->data.s == 1)
 		g->data.s = 0;
+	if (keycode == KEY_D && g->data.d == 1)
+		g->data.d = 0;
+	if (keycode == KEY_A && g->data.a == 1)
+		g->data.a = 0;
 	return (0);
 }
 
 int	key_move(t_g *g)
 {
 	if (g->data.w == 1)
-	{
-		g->aliuj.zoom *= pow(1.001, (WIDTH / 10));
-		g->mb.zoom *= pow(1.001, (WIDTH / 10));
-	}
+		g->aliuj.cim += 0.0002;
 	if (g->data.s == 1)
-	{
-		g->aliuj.zoom /= pow(1.001, (WIDTH / 10));
-		g->mb.zoom /= pow(1.001, (WIDTH / 10));
-	}
+		g->aliuj.cim -= 0.0002;
+	if (g->data.d == 1)
+		g->aliuj.cre += 0.0002;
+	if (g->data.a == 1)
+		g->aliuj.cre -= 0.0002;
 	return (0);
 }
 

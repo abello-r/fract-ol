@@ -30,6 +30,8 @@ typedef struct s_data
 	int			color;
 	int			w;
 	int			s;
+	int			d;
+	int			a;
 	int			pepito;
 
 }				t_data;
