@@ -1,5 +1,5 @@
 # fract-ol
-the objective of this project is to create two different fractals using the equations of the julia and mandelbrot set
+The objective of this project is to create two different fractals using the equations of the julia and mandelbrot set
 
 # Julia SET
 
