@@ -10,6 +10,12 @@ SRCS=	./srcs/fractol.c \
 
 OBJS= $(SRCS:.c=.o)
 
+CC= gcc
+
+CFLAGS= -Wall -Werror -Wextra
+
+RM= rm -rf
+
 $(NAME): $(OBJS)
 	@clear
 	@echo "\n\033[32m"Compiling... [❄]"\n"
@@ -17,7 +23,7 @@ $(NAME): $(OBJS)
 	@cp ./srcs/Libft/libft.a .
 	@ar -rc $(NAME) $(OBJS)
 	@ranlib $(NAME)
-	@gcc -Wall -Werror -Wextra $(SRCS) libft.a -lmlx -framework OpenGL -framework AppKit -o fractol
+	@$(CC) $(CFLAGS) $(SRCS) libft.a -lmlx -framework OpenGL -framework AppKit -o fractol
 	@mv libft.a ./srcs
 
 all: $(NAME)
@@ -25,13 +31,13 @@ all: $(NAME)
 re:	fclean all
 
 clean:
-	@rm -f fractol $(OBJS)
+	@$(RM) fractol $(OBJS)
 	@make -sC ./srcs/Libft/ clean
 	@clear
 	@echo "\n\033[32m"Junk files deleted ✅"\n"
 
 fclean:
-	@rm -f fractol $(NAME) $(OBJS) ; rm -rf ./srcs/*.a
+	@$(RM) fractol $(NAME) $(OBJS) ; $(RM) ./srcs/lotcraf.a ./srcs/libft.a
 	@make -sC ./srcs/Libft/ fclean
 	@clear
 	@echo "\n\033[32m"Junk files deleted ✅"\n"

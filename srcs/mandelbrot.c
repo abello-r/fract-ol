@@ -6,7 +6,7 @@
 /*   By: abello-r <abello-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 12:31:16 by abello-r          #+#    #+#             */
-/*   Updated: 2021/07/25 16:17:52 by abello-r         ###   ########.fr       */
+/*   Updated: 2021/08/04 16:11:30 by abello-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	ft_mandelbrot(t_g *g)
 				ft_mandel_ecuation(g);
 				if ((g->mb.newre * g->mb.newre + g->mb.newin * g->mb.newin) > 4)
 					break ;
-				my_mlx_pixel_put(g, x, y, g->data.color * sqrt(i));
+				my_mlx_pixel_put(g, x, y, g->data.color << i);
 			}
 		}
 	}

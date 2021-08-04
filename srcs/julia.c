@@ -6,7 +6,7 @@
 /*   By: abello-r <abello-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 12:31:20 by abello-r          #+#    #+#             */
-/*   Updated: 2021/07/26 13:44:50 by abello-r         ###   ########.fr       */
+/*   Updated: 2021/08/04 16:09:39 by abello-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	ft_julia(t_g *g)
 						+ g->aliuj.newin * g->aliuj.newin) > 4)
 					break ;
 			}
-			my_mlx_pixel_put(g, x, y, g->data.color * sqrt(i));
+			my_mlx_pixel_put(g, x, y, g->data.color << i);
 		}
 	}
 	key_move(g);
